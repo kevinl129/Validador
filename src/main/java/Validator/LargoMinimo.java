@@ -1,8 +1,11 @@
 package Validator;
 
 public class LargoMinimo implements Validator{
+  public String error= "La contrasenia debe tener 8 o mas caracteres";
+
   @Override
   public String validate(String contrasenia) {
-    return null;//longitud minimo de 8
+    if(contrasenia.length()>=8)return null;
+    return error;
   }
 }

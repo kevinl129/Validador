@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class ValidadorContrasenia {
 
-  private List<Validator> validators = new ArrayList<>(
+  private static List<Validator> validators = new ArrayList<>(
       Arrays.asList(
           new PeoresContrasenias(),
           new LargoMinimo(),
@@ -17,7 +17,7 @@ public class ValidadorContrasenia {
       )
   );
 
-  public String Validate(String contrasenia) {
+  public static String Validate(String contrasenia) {
     List<String> errors = new ArrayList<>();
     errors=validators.stream().map(validator->validator.validate(contrasenia)).filter(Objects::nonNull).collect(Collectors.toList());
     if (errors.size() > 0)
